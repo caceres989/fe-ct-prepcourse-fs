@@ -7,14 +7,32 @@ function crearGato(nombre, edad) {
    // La propiedad "meow" será una función que retorne el string: "Meow!".
    // Retornar el objeto.
    // Tu código:
-}
+   const gato = {
+      nombre : nombre,
+      edad : edad,
+      meow : function() {
+         return "Meow!";
+      }
+   }
+   return gato;
+};
 
 function nuevoUsuario(nombre, email, password) {
    // Debes crear un nuevo objeto.
    // Este debe tener las propiedades: "nombre", "email" y "password" con sus respectivos valores.
    // Retornar el objeto.
    // Tu código:
+   const usuario = {
+      nombre:nombre,
+      email:email,
+      password:password,
+   }
+   return usuario;
 }
+//Ejemplo de uso:
+// Puedes usar esta función de la siguiente manera:
+
+// const nuevo = nuevoUsuario("Juan", "juan@example.com", "12345"); esto creara un objeto nuevo y contendra las propiedades q definiste
 
 function agregarPropiedad(objeto, propiedad) {
    // Recibirás un objeto por parámetro.
@@ -22,6 +40,12 @@ function agregarPropiedad(objeto, propiedad) {
    // Esta propiedad será igual al valor `null`.
    // Retornar el objeto.
    // Tu código:
+   // Agrega la propiedad al objeto con el valor null
+   objeto[propiedad] = null;
+     
+   // Retorna el objeto modificado
+   return objeto;
+   
 }
 
 function invocarMetodo(objeto, metodo) {
@@ -29,43 +53,92 @@ function invocarMetodo(objeto, metodo) {
    // Esta propiedad contiene una función en su interior. Debes invocarla/ejecutarla.
    // [NOTA]: no necesitar retornar nada.
    // Tu código:
-}
+      
+   objeto[metodo]();
+   }
+   
+   
+
 
 function multiplicarNumeroDesconocidoPorCinco(objetoMisterioso) {
    // El parámetro "objetoMisterioso" posee una propiedad con el nombre "numeroMisterioso".
    // Debes multiplicar este número por 5 y retornar el resultado.
    // Tu código:
+
+   //Accedemos a la propiedad numeroMisterioso del objeto usando objetoMisterioso.numeroMisterioso.
+   //Luego, multiplicamos este valor por 5 y lo retornamos.
+   // Multiplicamos la propiedad "numeroMisterioso" por 5 y retornamos el resultado
+   return objetoMisterioso.numeroMisterioso *5;
 }
+
+
 
 function eliminarPropiedad(objeto, propiedad) {
    // El parámetro "propiedad" es una propiedad del objeto que recibes.
    // Debes eliminarla del objeto y retornarlo finalmente.
    // Tu código:
+   
+   
+   // Usamos el operador "delete" para eliminar la propiedad del objeto
+   delete objeto[propiedad];
+
+   return objeto;
+   
 }
 
 function tieneEmail(objetoUsuario) {
    // Verifica si el "objetoUsuario", en su propiedad "email", posee un valor definido.
    // En ese caso retornar true. Caso contrario, false.
    // Tu código:
-}
+
+      // Verifica si la propiedad "email" está definida y no es null o una cadena vacía
+      if (objetoUsuario.email) {
+         return true;
+      } else {
+         return false;
+      }
+   }
+
 
 function tienePropiedad(objeto, propiedad) {
    // Verifica si el objeto recibido posee una propiedad con el mismo nombre que el parámetro "propiedad".
    // En ese caso retornar true. Caso contrario, false.
    // Tu código:
+   
+   
+   //objeto[propiedad]: Usamos notación de corchetes para acceder de forma dinámica
+   // a la propiedad cuyo nombre es el valor del parámetro propiedad.
+   
+   if (objeto[propiedad]) {
+      return true;
+   } else {
+      return false;
+   }
 }
 
 function verificarPassword(objetoUsuario, password) {
    // Verifica si la propiedad "password" del "objetoUsuario" coincide con el parámetro "password".
    // En ese caso retornar true. Caso contrario, false.
    // Tu código:
+   if (objetoUsuario.password === password){
+      return true;
+   }else{
+      return false;
+   }
 }
+//Ejemplo de uso:
+// const usuario = { nombre: "Juan", password: "12345" };
+// console.log(verificarPassword(usuario, "12345")); // true
+// console.log(verificarPassword(usuario, "abcde")); // false
 
 function actualizarPassword(objetoUsuario, nuevaPassword) {
    // Reemplaza la contrseña guardada en la propiedad "password" del "objetoUsuario".
    // La nueva contraseña la recibes por parámetro.
    // Retornar el objeto.
    // Tu código:
+   objetoUsuario.password = nuevaPassword;
+   return objetoUsuario;
+
 }
 
 function agregarAmigo(objetoUsuario, nuevoAmigo) {
@@ -73,6 +146,12 @@ function agregarAmigo(objetoUsuario, nuevoAmigo) {
    // Debes agregar el "nuevoAmigo" al final de este arreglo.
    // Retornar el objeto.
    // Tu código:
+
+     // Agrega el nuevo amigo al final del arreglo "amigos"
+   objetoUsuario.amigos.push (nuevoAmigo);
+   
+   return objetoUsuario;
+
 }
 
 function pasarUsuarioAPremium(objetoMuchosUsuarios) {
